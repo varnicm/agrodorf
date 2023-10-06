@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Layout</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/a7e3822358f6dcb2f986a68cf24721b2?family=MV+Boli" rel="stylesheet" type="text/css"/>
+
+<style>
+    html {
+        scroll-behavior: smooth !important;
+    }
+        /* Styles for Fixed Header and smooth scroll */
+        body {
+            padding-top: 100px;
+        }
+
+        .fixed-top {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add some styling and spacing to sections for demo */
+        section {
+            height: 600px;
+            margin-top: 2rem;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header class="fixed-top">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <img src="img/logo.png" alt="Logo" height="100">
+                <span class="ml-2">Agrodorf GmbH</span>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="mx-auto">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section1">Section 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section2">Section 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section3">Section 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section4">Section 4</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section5">Section 5</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section6">Section 6</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <span>EN / DE</span>
+    </div>
+</header>
+
+<main>
+    <section id="section1" class="bg-light">
+        <h2>Section 1</h2>
+        <p>Content for section 1...</p>
+    </section>
+    <section id="section2" class="bg-secondary text-white">
+        <h2>Section 2</h2>
+        <p>Content for section 2...</p>
+    </section>
+    <section id="section3" class="bg-light">
+        <h2>Section 3</h2>
+        <p>Content for section 3...</p>
+    </section>
+    <section id="section4" class="bg-secondary text-white">
+        <h2>Section 4</h2>
+        <p>Content for section 4...</p>
+    </section>
+    <section id="section5" class="bg-light">
+        <h2>Section 5</h2>
+        <p>Content for section 5...</p>
+    </section>
+    <section id="section6" class="bg-secondary text-white">
+        <h2>Section 6</h2>
+        <p>Content for section 6...</p>
+    </section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Script for making navbar links active when users access to sections
+    $(document).ready(function() {
+        var $sections = $('section');
+        $(window).scroll(function() {
+            var currentScroll = $(this).scrollTop();
+            var $currentSection;
+            $sections.each(function() {
+                var divPosition = $(this).offset().top;
+                if (divPosition - 1 < currentScroll) {
+                    $currentSection = $(this);
+                }
+                var id = $currentSection.attr('id');
+                $('a.nav-link').removeClass('active');
+                $('[href="#' + id + '"]').addClass('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
